@@ -1,15 +1,62 @@
-import { FaGithub } from 'react-icons/fa';
-import hafizImg from '../assets/hafiz.png'
+import { FaGithub, FaRegFileAlt } from 'react-icons/fa';
+// import hafizImg from '../assets/hafiz.png'
 import { FaXTwitter } from 'react-icons/fa6';
 import Typewriter from 'typewriter-effect';
+import Lottie from 'lottie-react';
+
+import Developer from '../assets/developer.json'
+
+import WavingHand from '../assets/icons8-waving-hand-medium-dark-skin-tone-100.png'
+
 
 const Banner = () => {
     return (
         <div className='max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-5 md:pb-10 lg:pb-16'>
             <div className="flex flex-col md:flex-row justify-between items-center md:items-start pt-1 md:pt-8 lg:pt-24">
                 <div className="pt-6 md:pt-10 space-y-4 text-center md:text-left">
-                    <h2 className="text-3xl md:text-4xl lg:text-5xl font-medium">Hafiz Al Shams</h2>
-                    <h3 className="text-xl md:text-2xl lg:text-3xl text-gray-600 font-semibold">Frontend Developer</h3>
+
+                    {/* <h2 className="text-3xl md:text-4xl lg:text-5xl font-medium">Hafiz Al Shams</h2>
+                    <h3 className="text-xl md:text-2xl lg:text-3xl text-gray-600 font-semibold">Frontend Developer</h3> */}
+
+
+                    {/* new code below */}
+                    <div className="flex flex-col gap-10">
+                        {/* Name box */}
+                        <div
+                            className="inline-block bg-white/70 backdrop-blur-sm rounded-xl px-6 py-4 shadow-lg"
+                        >
+                            <div className="flex justify-start items-center">
+                                <img src={WavingHand} alt="waving-hand" className='w-10' />
+                                <p className="text-gray-500 text-sm mb-1">Hello, I am</p>
+                            </div>
+                            <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold">
+                                Hafiz Al Shams
+                            </h2>
+                        </div> {/* ← added */}
+
+                        {/* Role box */}
+                        <div
+                            className="inline-block bg-white/70 backdrop-blur-sm rounded-xl px-6 py-3 shadow"
+                        >
+                            <Typewriter
+                                options={{
+                                    strings: [
+                                        'Web Developer',
+                                        'React.js Developer',
+                                        'MERN Stack Developer',
+                                        'FrontEnd Developer',
+                                    ],
+                                    autoStart: true,
+                                    loop: true,
+                                    delay: 75,
+                                    deleteSpeed: 50,
+                                    cursor: '|',                          // ← edited: show blinking cursor
+                                    wrapperClassName: 'text-blue-600 uppercase font-semibold text-sm md:text-base', // ← added styling
+                                }}
+                            />
+                        </div> {/* ← added */}
+                    </div>
+                    {/* new code above */}
 
                     <div className="mt-5 sm:mt-7">
 
@@ -23,19 +70,20 @@ const Banner = () => {
                                 className="
     btn lg:btn-lg
     text-white         
-    
+    font-light
     bg-[#5a0ea1]
     border-0                            
     transition duration-150 ease-in-out 
     transform                           
-    hover:scale-125                    
+    hover:scale-100                    
     hover:shadow-2xl                     
-    hover:shadow-white
+    hover:drop-shadow-xs
     hover:bg-[#470c7e]                 
     hover:text-white
   "
                             >
-                                Resume
+                                <FaRegFileAlt />
+                                View Resume
                             </button>
 
                         </a>
@@ -47,7 +95,7 @@ const Banner = () => {
                             href="https://github.com/Hafiz-Al-Shams"
                             target="_blank"
                             rel="noopener noreferrer"
-                            className="transition duration-150 ease-in-out transform hover:scale-150 hover:shadow-2xl hover:shadow-white"
+                            className="transition duration-150 ease-in-out transform hover:scale-100 hover:shadow-2xl hover:drop-shadow-xs"
                         >
                             <FaGithub />
                         </a>
@@ -55,14 +103,14 @@ const Banner = () => {
                             href="https://x.com/hafiz_dev25"
                             target="_blank"
                             rel="noopener noreferrer"
-                            className="transition duration-150 ease-in-out transform hover:scale-150 hover:shadow-2xl hover:shadow-white"
+                            className="transition duration-150 ease-in-out transform hover:scale-100 hover:shadow-2xl hover:drop-shadow-xs"
                         >
                             <FaXTwitter />
                         </a>
                     </div>
 
                 </div>
-                <div className="mt-10 md:mt-0 transition-transform duration-300 hover:scale-110 ease-in-out">
+                {/* <div className="mt-10 md:mt-0 transition-transform duration-300 hover:scale-110 ease-in-out">
                     <img
                         src={hafizImg}
                         alt="Profile"
@@ -70,7 +118,16 @@ const Banner = () => {
 
                     // Responsive image scaling
                     />
+                </div> */}
+
+                {/* Lottie Starts */}
+                <div className="w-56 md:w-80 lg:w-md">
+
+                    <Lottie animationData={Developer}></Lottie>
                 </div>
+                {/* Lottie Ends */}
+
+
             </div>
 
             <h3 className="
