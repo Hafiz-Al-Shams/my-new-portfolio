@@ -1,0 +1,80 @@
+[
+    {
+        "project_name": "CureMedix - Medicine Selling E-commerce Website",
+        "project_image": "https://i.ibb.co.com/yFHM95cz/img-1.png",
+        "main_technology_stack": [
+            "React",
+            "React Router",
+            "React Hook Form",
+            "React Icons",
+            "Swiper.js",
+            "React Responsive Carousel",
+            "Express.js",
+            "MongoDB",
+            "React Query",
+            "Axios",
+            "Match Sorter",
+            "LocalForage",
+            "Stripe",
+            "SweetAlert2",
+            "React Tooltip",
+            "HTML2PDF.js"
+        ],
+        "brief_description": "A modern pharmacy e-commerce platform with a user-friendly UI, secure authentication, and seamless shopping experience. Features include category-based navigation, a fully functional cart, and Stripe-powered checkout.",
+        "live_project_link": "https://cure-medix-by-hafiz-al-shams1917.netlify.app/",
+        "github_repository_link": "https://github.com/Hafiz-Al-Shams/CureMedix-client",
+        "challenges_faced": "Faced challenges in implementing secure, role‑based authentication, ensuring robust user/seller or Admin data persistence on the server, integrating Stripe for payment processing, and developing the banner advertisement workflow.",
+        "potential_improvements": "Enhancing the admin dashboard and seller dashboard with more analytics and adding AI-based medicine recommendations."
+    },
+    {
+        "project_name": "Elkano64 - Restaurant Management Website",
+        "project_image": "https://i.ibb.co.com/pBKYh0g5/img-2.png",
+        "main_technology_stack": [
+            "React",
+            "React Router",
+            "React Helmet Async",
+            "Yet Another React Lightbox",
+            "React Snowfall",
+            "Express.js",
+            "MongoDB",
+            "LocalForage",
+            "Match Sorter",
+            "Firebase",
+            "SweetAlert2",
+            "React Tooltip"
+        ],
+        "brief_description": "A restaurant management platform built with the MERN stack to streamline operations and enhance customer engagement. It simplifies order management, improves staff coordination, and strengthens the restaurant’s online presence.",
+        "live_project_link": "https://elkano64.netlify.app/",
+        "github_repository_link": "https://github.com/Hafiz-Al-Shams/elkano64-client",
+        "challenges_faced": "Implementing real-time food listing and ensuring seamless order management with proper database queries.",
+        "potential_improvements": "Adding an AI-powered recommendation system for food suggestions and optimizing the UI for better mobile responsiveness."
+    },
+    {
+        "project_name": "Giftify - Virtual & Physical Gift Store | Team Project",
+        "project_image": "https://i.ibb.co/PZV8gGqr/Giftify.png",
+        "main_technology_stack": [
+            "React",
+            "React Router",
+            "Firebase",
+            "Express.js",
+            "React Hook Form",
+            "MongoDB with Mongoose ODM",
+            "Framer Motion",
+            "Yet Another React Lightbox",
+            "React Hook Form",
+            "Keen-Slider",
+            "TanStack Query",
+            "Axios",
+            "React Toastify",
+            "Lottie React",
+            "SweetAlert2",
+            "Recharts",
+            "Stripe"
+        ],
+        "brief_description": "Giftify is a gift-sending e-commerce website- launching soon. It lets users send digital gifts, like e-gift cards and animations instantly by email. Users can also order physical gifts, such as custom floral arrangements and themed gift bundles, to be delivered to their loved ones' doorstep with a personalized message. Built with MERN, Giftify runs smoothly across all devices and keeps payments safe. Whether it’s for Eid, Valentine’s Day, Anniversary, birthdays, or any occasion, Giftify makes sending gifts simple and fast.",
+        "live_project_link": "https://giftify-pro.netlify.app/",
+        "github_repository_link": "https://github.com/Md-Siyam94/giftify-client/tree/hafiz",
+        "challenges_faced": "Building robust auth with ‘Forgot Password’ & lockout after failed logins; optimizing gift selection and checkout performance for seamless UX.",
+        "potential_improvements": "Adding user reviews with real-time feedback, building seller & delivery dashboards, implementing real-time delivery tracking, creating an animated gift customization editor, and enhancing analytics dashboards for users & admins."
+    }
+]
