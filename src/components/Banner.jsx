@@ -2,11 +2,11 @@ import { FaGithub, FaRegFileAlt } from 'react-icons/fa';
 // import hafizImg from '../assets/hafiz.png'
 import { FaXTwitter } from 'react-icons/fa6';
 import Typewriter from 'typewriter-effect';
-import Lottie from 'lottie-react';
+// import Lottie from 'lottie-react';
 
 import Developer from '../assets/developer.json'
 
-import WavingHand from '../assets/icons8-waving-hand-medium-dark-skin-tone-100.png'
+import WavingHand from '../assets/icons8-waving-hand-emoji-96.png'
 
 
 const Banner = () => {
@@ -121,10 +121,10 @@ const Banner = () => {
                 </div> */}
 
                 {/* Lottie Starts */}
-                <div className="w-56 md:w-80 lg:w-md">
+                {/* <div className="w-56 md:w-80 lg:w-md">
 
                     <Lottie animationData={Developer}></Lottie>
-                </div>
+                </div> */}
                 {/* Lottie Ends */}
 
 

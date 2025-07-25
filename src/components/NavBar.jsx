@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import logo from '../assets/favicon.png'
+import { MdLightMode, MdOutlineDarkMode } from 'react-icons/md';
 
 
 const NavBar = () => {
@@ -7,13 +8,22 @@ const NavBar = () => {
   const [active, setActive] = useState('Home') // <-- new
 
   // your list of links
-  const links = ['Skills', 'About', 'Projects', 'Contact']
+  const links = ['Projects', 'About', 'Skills', 'Contact',]
+
+  const [theme, setTheme] = useState("light");
+
+  const toggleTheme = () => {
+    const next = theme === "light" ? "dark" : "light";
+    setTheme(next);
+    localStorage.setItem("theme", next);
+    document.documentElement.setAttribute("data-theme", next);
+  };
 
   return (
     <div className="sticky top-0 z-10">
       <div
-        className="navbar shadow-sm text-neutral-content lg:py-3.5"
-        style={{ backgroundColor: '#2A1454' }}
+        className="navbar drop-shadow-md text-neutral-content lg:py-3.5 bg-base-300/80 backdrop-blur-xs"
+      // style={{ backgroundColor: '#2A1454' }}
       >
         {/* left: logo + mobile menu */}
         <div className="navbar-start">
@@ -21,7 +31,7 @@ const NavBar = () => {
             <div
               tabIndex={0}
               role="button"
-              className="btn btn-ghost btn-sm lg:hidden"
+              className="btn btn-ghost btn-sm lg:hidden text-base-content"
             >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -43,9 +53,9 @@ const NavBar = () => {
               className="menu menu-sm dropdown-content bg-base-100 text-base-content rounded-box mt-3 w-52 p-2 shadow"
             >
               {[
-                { label: 'Skills', href: '#skills' },
-                { label: 'About', href: '#about' },
                 { label: 'Projects', href: '#projects' },
+                { label: 'About', href: '#about' },
+                { label: 'Skills', href: '#skills' },
                 { label: 'Contact Me', href: '#contact' },
               ].map(({ label, href }) => (
                 <li
@@ -78,7 +88,7 @@ const NavBar = () => {
           <div className="flex items-center gap-1 pl-3.5 md:pl-2.5 lg:pl-24">
             {/* wrap both image + text in one link */}
             <a
-              href="#home"
+              href="#banner"
               onClick={() => setActive('Home')}
               className="flex items-center"
             >
@@ -86,7 +96,7 @@ const NavBar = () => {
               <img src={logo} alt="logo" className="w-7 md:w-6" />
 
               {/* text hidden on mobile, visible from md+ */}
-              <h5 className="hidden md:block md:ml-1">
+              <h5 className="hidden md:block md:ml-1 text-base-content bilbo text-3xl">
                 {`hafiz.codes`}
               </h5>
             </a>
@@ -120,7 +130,8 @@ const NavBar = () => {
 
         {/* right: Resume pill */}
         <div className="navbar-end pr-3.5 md:pr-4 lg:pr-24">
-          <div
+
+          {/* <div
             className="flex items-center bg-[#382868] rounded-md md:rounded-lg p-0 text-xs md:text-sm"
             style={{ backdropFilter: 'blur(5px)' }}
           >
@@ -136,7 +147,23 @@ const NavBar = () => {
             >
               Resume
             </a>
+          </div> */}
+
+          <div
+            className="tooltip tooltip-bottom transition-transform duration-75 ease-in-out hover:scale-105"
+            data-tip={theme === "light" ? "Toggle Dark" : "Toggle Light"}
+          >
+            <button
+              onClick={toggleTheme}
+              // onClick={() => {
+              //   setTheme(!theme)
+              // }}
+              className="btn btn-sm md:btn-md btn-circle border-[1px] border-neutral-content"
+            >
+              {theme === "light" ? <MdOutlineDarkMode /> : <MdLightMode />}
+            </button>
           </div>
+
         </div>
       </div>
     </div>
