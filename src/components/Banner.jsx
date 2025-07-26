@@ -149,7 +149,7 @@ const Banner = () => {
                                 href="https://github.com/yourusername"
                                 aria-label="GitHub"
                                 title="Follow me on GitHub"
-                                className="text-gray-800 hover:text-gray-950 transition-colors duration-200"
+                                className="text-base-content/80 hover:text-base-content transition-colors duration-200"
                             >
                                 <FaGithub size={24} className="sm:w-7 sm:h-7 lg:w-8 lg:h-8" />
                             </a>
@@ -222,7 +222,7 @@ const Banner = () => {
     hover:scale-100                    
     hover:shadow-lg                     
     hover:drop-shadow-xs
-    hover:bg-base-100
+    hover:bg-white/95
     hover:text-[#5a0ea1]
   "
 
