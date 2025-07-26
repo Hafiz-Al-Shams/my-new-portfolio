@@ -26,7 +26,7 @@ const tools = [
 const Skills = () => {
     return (
         <div>
-            <div className="pb-24 pt-10 sm:pt-20 bg-base-200 text-gray-900"> {/* Adjusted top padding for mobile */}
+            <div className="pb-24 pt-10 sm:pt-20 text-base-content"> {/* Adjusted top padding for mobile */}
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8"> {/* Increased width for large screens & added padding */}
 
                     <h2 className="text-3xl sm:text-4xl font-bold text-center mb-8 sm:mb-10 text-gray-800">My Skills</h2> {/* Adjusted font size */}

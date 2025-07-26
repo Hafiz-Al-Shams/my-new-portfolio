@@ -15,11 +15,11 @@ const sectionVariants = {
     },
 };
 
-
+// px-4 md:px-8 lg:px-16
 
 const Home = () => {
     return (
-        <div className="space-y-5 md:space-y-6 lg:space-y-10 px-4 md:px-8 lg:px-16 pb-0.5 md:pb-4 lg:pb-7">
+        <div className="space-y-5 md:space-y-6 lg:space-y-10 pb-0.5 md:pb-4 lg:pb-7">
             {/* Banner Section */}
             <motion.section
                 id="banner"

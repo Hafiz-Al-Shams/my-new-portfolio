@@ -1,64 +1,102 @@
-import { FaGithub, FaRegFileAlt } from 'react-icons/fa';
-// import hafizImg from '../assets/hafiz.png'
-import { FaXTwitter } from 'react-icons/fa6';
+import { FaGithub, FaLinkedin, FaRegFileAlt, FaWhatsapp } from 'react-icons/fa';
+import bannerImg from '../assets/hafiz.webp'
 import Typewriter from 'typewriter-effect';
-// import Lottie from 'lottie-react';
 
 import Developer from '../assets/developer.json'
-
-import WavingHand from '../assets/icons8-waving-hand-emoji-96.png'
+import Lottie from 'lottie-react';
+import { AnimatePresence, motion } from 'framer-motion';
+import { useEffect, useState } from 'react';
 
 
 const Banner = () => {
+
+    // 1. Rotating words array
+    const words = [
+        'JavaScript Solutions',
+        'React.js Expertise',
+        'MERN stack Solutions',
+        'UI/UX Design',
+        'API Development',
+        'Full stack knowledge'
+    ];
+
+    // 2. Track which word is active
+    const [index, setIndex] = useState(0);
+
+    // 3. Auto‑advance the index every 3.2s
+    useEffect(() => {
+        const intervalId = setInterval(() => {
+            setIndex(prev => (prev + 1) % words.length);
+        }, 3200);
+        return () => clearInterval(intervalId);
+    }, [words.length]);
+
+    // 4. Compute left/right direction toggle
+    const direction = index % 2 === 0 ? 1 : -1;
+
+    // 5. Split current word into letters
+    const letters = words[index].split('');
+
+    // 6. Framer Motion variants for staggering
+    const containerVariants = {
+        enter: { transition: { staggerChildren: 0.06 } },
+        center: {},
+        exit: { transition: { staggerChildren: 0.04, staggerDirection: -1 } }
+    };
+
+
     return (
-        <div className='max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-5 md:pb-10 lg:pb-16'>
-            <div className="flex flex-col md:flex-row justify-between items-center md:items-start pt-1 md:pt-8 lg:pt-24">
-                <div className="pt-6 md:pt-10 space-y-4 text-center md:text-left">
+        <div className="w-full min-h-screen bg-base-300 text-base-content overflow-hidden px-2 sm:px-4 md:px-8 lg:px-16">
+            {/* Left + Right content */}
+            <div className="container mx-auto h-full min-h-screen flex flex-col lg:flex-row lg:items-center lg:justify-between px-2 sm:px-4 lg:px-8 py-6 lg:py-0">
 
-                    {/* <h2 className="text-3xl md:text-4xl lg:text-5xl font-medium">Hafiz Al Shams</h2>
-                    <h3 className="text-xl md:text-2xl lg:text-3xl text-gray-600 font-semibold">Frontend Developer</h3> */}
+                {/* Left Column */}
+                <div className="w-full lg:w-1/3 order-2 lg:order-1">
 
-
-                    {/* new code below */}
-                    <div className="flex flex-col gap-10">
-                        {/* Name box */}
-                        <div
-                            className="inline-block bg-white/70 backdrop-blur-sm rounded-xl px-6 py-4 shadow-lg"
-                        >
-                            <div className="flex justify-start items-center">
-                                <img src={WavingHand} alt="waving-hand" className='w-10' />
-                                <p className="text-gray-500 text-sm mb-1">Hello, I am</p>
+                    <div className="flex flex-col space-y-2.5 py-4 sm:py-6 lg:py-8 px-2 sm:px-3.5">
+                        {/* Profile Image and Hello */}
+                        <div className="flex items-center space-x-2 sm:space-x-3 lg:space-x-3.5 mb-3 sm:mb-4 lg:mb-5">
+                            <div className="w-12 h-12 sm:w-14 sm:h-14 lg:w-16 lg:h-16 rounded-2xl sm:rounded-3xl overflow-hidden shadow-lg">
+                                <img
+                                    src={bannerImg}
+                                    alt="Hafiz Al Shams"
+                                    className="w-full h-full object-cover"
+                                />
                             </div>
-                            <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold">
-                                Hafiz Al Shams
+                            {/* <h2 className="text-4xl font-light text-base-content">Hello!</h2> */}
+                            <h2 className="text-2xl sm:text-3xl lg:text-4xl font-light text-base-content">
+                                <Typewriter
+                                    options={{
+                                        strings: ["Hello"],
+                                        autoStart: true,
+                                        loop: true,
+                                        delay: 80,         // type  every char in 10ms
+                                        deleteSpeed: 25,   // delete every char in 10ms
+                                        pauseFor: 2500,   // wait 25000ms (25s) before deleting
+                                        cursor: '!',
+                                    }}
+                                />
                             </h2>
-                        </div> {/* ← added */}
+                        </div>
 
-                        {/* Role box */}
-                        <div
-                            className="inline-block bg-white/70 backdrop-blur-sm rounded-xl px-6 py-3 shadow"
-                        >
-                            <Typewriter
-                                options={{
-                                    strings: [
-                                        'Web Developer',
-                                        'React.js Developer',
-                                        'MERN Stack Developer',
-                                        'FrontEnd Developer',
-                                    ],
-                                    autoStart: true,
-                                    loop: true,
-                                    delay: 75,
-                                    deleteSpeed: 50,
-                                    cursor: '|',                          // ← edited: show blinking cursor
-                                    wrapperClassName: 'text-blue-600 uppercase font-semibold text-sm md:text-base', // ← added styling
-                                }}
-                            />
-                        </div> {/* ← added */}
+                        {/* Name */}
+                        <div className="">
+                            <h2 className="text-2xl sm:text-3xl lg:text-4xl font-light text-base-content leading-tight tracking-tight">
+                                I am <span className="font-medium">Hafiz Al Shams</span>
+                            </h2>
+                        </div>
+
+
                     </div>
-                    {/* new code above */}
 
-                    <div className="mt-5 sm:mt-7">
+                    <div className="">
+                        {/* <p className="text-lg font-bold">Hi, I am Alex</p> */}
+                        <p className="text-left pl-2 sm:pl-3.5 pr-4 sm:pr-8 lg:pr-10 text-base-content/95 text-base sm:text-lg">
+                            A <span className='font-semibold uppercase'>web developer</span> passionate about applying technology to build web solutions for real-world challenges.
+                        </p>
+                    </div>
+
+                    <div className="pl-2 sm:pl-3.5 mt-4 sm:mt-5 lg:mt-7">
 
                         <a
                             href="https://drive.google.com/file/d/1JCMZ-Pn81dskty1UP4Rm4y3x1ybysI_s/view?usp=drive_link"
@@ -68,7 +106,7 @@ const Banner = () => {
                         >
                             <button
                                 className="
-    btn lg:btn-lg
+    btn btn-sm sm:btn-md lg:btn-lg
     text-white         
     font-light
     bg-[#5a0ea1]
@@ -76,11 +114,12 @@ const Banner = () => {
     transition duration-150 ease-in-out 
     transform                           
     hover:scale-100                    
-    hover:shadow-2xl                     
+    hover:shadow-lg                     
     hover:drop-shadow-xs
-    hover:bg-[#470c7e]                 
+    hover:bg-[#470c7e]
     hover:text-white
   "
+
                             >
                                 <FaRegFileAlt />
                                 View Resume
@@ -88,78 +127,115 @@ const Banner = () => {
 
                         </a>
 
-
                     </div>
-                    <div className="flex justify-center md:justify-start items-center gap-4 sm:gap-6 mt-8 sm:mt-10 text-3xl sm:text-4xl">
-                        <a
-                            href="https://github.com/Hafiz-Al-Shams"
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            className="transition duration-150 ease-in-out transform hover:scale-100 hover:shadow-2xl hover:drop-shadow-xs"
-                        >
-                            <FaGithub />
-                        </a>
-                        <a
-                            href="https://x.com/hafiz_dev25"
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            className="transition duration-150 ease-in-out transform hover:scale-100 hover:shadow-2xl hover:drop-shadow-xs"
-                        >
-                            <FaXTwitter />
-                        </a>
-                    </div>
-
                 </div>
-                {/* <div className="mt-10 md:mt-0 transition-transform duration-300 hover:scale-110 ease-in-out">
-                    <img
-                        src={hafizImg}
-                        alt="Profile"
-                        className="w-40 sm:w-56 md:w-72 lg:w-80 rounded-full border-4 border-gray-200 shadow-xl"
-
-                    // Responsive image scaling
-                    />
-                </div> */}
 
                 {/* Lottie Starts */}
-                {/* <div className="w-56 md:w-80 lg:w-md">
+                <div className="w-full sm:w-64 md:w-72 lg:w-56 xl:w-80 2xl:w-md border-0 order-1 lg:order-2 mb-6 lg:mb-0 max-w-sm mx-auto lg:mx-0">
 
                     <Lottie animationData={Developer}></Lottie>
-                </div> */}
+                </div>
                 {/* Lottie Ends */}
 
 
+
+                {/* Right Column */}
+                <div className="w-full lg:w-1/4 text-center lg:text-right order-3">
+                    {/* Socials */}
+                    <div>
+                        <p className="uppercase text-sm sm:text-base lg:text-lg tracking-wide">Connect with Me</p>
+                        <div className="flex justify-center lg:justify-end space-x-3 sm:space-x-4 mt-2">
+                            <a
+                                href="https://github.com/yourusername"
+                                aria-label="GitHub"
+                                title="Follow me on GitHub"
+                                className="text-gray-800 hover:text-gray-950 transition-colors duration-200"
+                            >
+                                <FaGithub size={24} className="sm:w-7 sm:h-7 lg:w-8 lg:h-8" />
+                            </a>
+                            <a
+                                href="https://linkedin.com/in/yourusername"
+                                aria-label="LinkedIn"
+                                title="Connect with me on LinkedIn"
+                                className="text-[#0A66C2] hover:text-[#004182] transition-colors duration-200"
+                            >
+                                <FaLinkedin size={24} className="sm:w-7 sm:h-7 lg:w-8 lg:h-8" />
+                            </a>
+                            <a
+                                href="https://wa.me/yourphonenumber"
+                                aria-label="WhatsApp"
+                                title="Message me on WhatsApp"
+                                className="text-[#25D366] hover:text-[#128C7E] transition-colors duration-200"
+                            >
+                                <FaWhatsapp size={24} className="sm:w-7 sm:h-7 lg:w-8 lg:h-8" />
+                            </a>
+                        </div>
+                    </div>
+
+
+                    {/* my areas of expertise */}
+                    {/* typing effect here */}
+                    <div className="mt-6 sm:mt-8 lg:mt-10 border-0 h-20 sm:h-24 lg:h-28 flex items-center justify-center lg:justify-end">
+                        <AnimatePresence mode="wait">
+                            <motion.div
+                                key={words[index]}
+                                variants={containerVariants}
+                                initial="enter"
+                                animate="center"
+                                exit="exit"
+                                className="inline-block text-lg sm:text-xl md:text-2xl lg:text-3xl font-semibold text-base-content text-center lg:text-right"
+                            >
+                                {letters.map((char, i) => (
+                                    <motion.span
+                                        key={i}
+                                        initial={{ opacity: 0, x: 20 * direction, y: -20 }}
+                                        animate={{ opacity: 1, x: 0, y: 0 }}
+                                        exit={{ opacity: 0, x: -20 * direction, y: 0 }}
+                                        transition={{ duration: 0.4, ease: 'easeInOut' }}
+                                        className="inline-block"
+                                    >
+                                        {char === ' ' ? '\u00A0' : char}
+                                    </motion.span>
+                                ))}
+                            </motion.div>
+                        </AnimatePresence>
+                    </div>
+
+
+                    <div className="pl-0 lg:pl-3.5 mt-4 sm:mt-5 lg:mt-7 flex justify-center lg:justify-start lg:block">
+
+                        <a
+                            href="#projects"
+                            className=""
+                        >
+                            <button
+                                className="
+    btn btn-sm sm:btn-md lg:btn-lg
+    tracking-tight
+    font-light
+    border-0
+    border-b-2
+    hover:border-0
+    border-base-content/25
+    transition duration-150 ease-in-out 
+    transform                           
+    hover:scale-100                    
+    hover:shadow-lg                     
+    hover:drop-shadow-xs
+    hover:bg-base-100
+    hover:text-[#5a0ea1]
+  "
+
+                            >
+                                See my work
+                            </button>
+
+                        </a>
+
+
+                    </div>
+                </div>
             </div>
-
-            <h3 className="
-    flex flex-wrap items-center justify-center
-    text-xl
-    md:text-3xl md:justify-start
-    lg:text-5xl 
-    font-semibold 
-    mt-8 sm:mt-12 md:mt-16
-  ">
-                <span className="whitespace-nowrap mr-1 md:mr-1.5 lg:mr-2">
-                    i code
-                </span>
-                <span className="md:whitespace-nowrap text-[#5a0ea1]">
-                    <Typewriter
-                        options={{
-                            strings: [
-                                "tomorrow's Web, today",
-                                "user-centric designs",
-                                "Simple Site Spark",
-                            ],
-                            autoStart: true,
-                            loop: true,
-                            delay: 25,
-                            deleteSpeed: 25,
-                        }}
-                    />
-                </span>
-            </h3>
-
-
-
         </div>
 
     );

@@ -8,7 +8,7 @@ const NavBar = () => {
   const [active, setActive] = useState('Home') // <-- new
 
   // your list of links
-  const links = ['Projects', 'About', 'Skills', 'Contact',]
+  const links = ['PROJECTS', 'ABOUT', 'SKILLS', 'CONTACT',]
 
   const [theme, setTheme] = useState("light");
 
@@ -53,10 +53,10 @@ const NavBar = () => {
               className="menu menu-sm dropdown-content bg-base-100 text-base-content rounded-box mt-3 w-52 p-2 shadow"
             >
               {[
-                { label: 'Projects', href: '#projects' },
-                { label: 'About', href: '#about' },
-                { label: 'Skills', href: '#skills' },
-                { label: 'Contact Me', href: '#contact' },
+                { label: 'PROJECTS', href: '#projects' },
+                { label: 'ABOUT', href: '#about' },
+                { label: 'SKILLS', href: '#skills' },
+                { label: 'CONTACT ME', href: '#contact' },
               ].map(({ label, href }) => (
                 <li
                   key={label}
@@ -107,7 +107,7 @@ const NavBar = () => {
         {/* center: pill‑shaped menu */}
         <div className="navbar-center hidden lg:flex">
           <div
-            className="flex items-center space-x-1 bg-[#382868] rounded-xl p-2 text-sm"
+            className="flex items-center space-x-1 bg-[#5a0ea1] rounded-xl p-2 text-sm"
             style={{ backdropFilter: 'blur(5px)' }} // <-- optional blur like your example
           >
             {links.map((label) => (

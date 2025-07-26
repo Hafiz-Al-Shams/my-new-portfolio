@@ -8,12 +8,14 @@ const MainLayout = () => {
 
             // <div className="max-w-[80vw] mx-auto">
 
+            // bg-base-300
+
 
     return (
         <>
             <div className="">
                 <NavBar></NavBar>
-            <div className="bg-base-300 min-h-screen">
+            <div className="min-h-screen">
                 <Outlet></Outlet>
             </div>
             <Footer></Footer>
